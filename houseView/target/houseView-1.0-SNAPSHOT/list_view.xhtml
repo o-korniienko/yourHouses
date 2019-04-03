@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+
+<h:body>
+    <h:form>
+        <p:panel header="Add house">
+            <p:panelGrid columns="2">
+                <p:column>
+                    <p:inputText value="#{houseBean.streetName}"/>
+                </p:column>
+                <p:column>
+                    <p:commandButton value="Add" action="#{houseBean.createHouse}" update="createdHouses"/>
+                </p:column>
+
+            </p:panelGrid>
+        </p:panel>
+        <p:panel header="List of houses" id="createdHouses">
+            <p:dataTable value="#{houseBean.houses}" var="house">
+                <p:column>
+                    <h:outputText value="#{house.id}"/>
+                </p:column>
+                <p:column>
+                    <h:outputText value="#{house.streetName}"/>
+                </p:column>
+                <p:column>
+                    <p:commandButton value="Add apartment" action="#{houseBean.goToAddApartmentView(house)}"/>
+                </p:column>
+                <p:column>
+                    <p:commandButton value="Show all apartments" action="#{houseBean.setHouse(house)}"
+                                     update="apartments"/>
+                </p:column>
+            </p:dataTable>
+        </p:panel>
+    </h:form>
+
+    <p:panel header="List of apartments" id="apartments">
+        <p:dataTable value="#{houseBean.apartmentsInHous}" var="apartment">
+            <p:column headerText="Owner">
+                <h:outputText value="#{apartment.owner}"/>
+            </p:column>
+            <p:column headerText="Apartment number">
+                <h:outputText value="#{apartment.apartmentNumber}"/>
+            </p:column>
+            <p:column headerText="Floor">
+                <h:outputText value="#{apartment.floor}"/>
+            </p:column>
+            <p:column headerText="Area">
+                <h:outputText value="#{apartment.area}"/>
+            </p:column>
+            <p:column headerText="Number of rooms">
+                <h:outputText value="#{apartment.numberOfRooms}"/>
+            </p:column>
+            <p:column>
+                <p:commandButton value="Delete" action="#{houseBean.delApartment(apartment)}" update="apartments"/>
+            </p:column>
+        </p:dataTable>
+    </p:panel>
+
+</h:body>
+</html>

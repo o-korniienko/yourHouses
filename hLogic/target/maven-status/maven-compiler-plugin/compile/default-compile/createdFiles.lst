@@ -1,0 +1,4 @@
+com\homework\domain\Apartment.class
+com\homework\managers\ApartmentManager.class
+com\homework\domain\House.class
+com\homework\managers\HouseManager.class

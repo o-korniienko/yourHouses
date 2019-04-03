@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+    <h:form>
+        <p:panel header="Add apartment">
+            <p:panelGrid columns="5">
+                <p:column>
+                    Власник
+                </p:column>
+                <p:column>
+                    Номер квартири
+                </p:column>
+                <p:column>
+                    Площа
+                </p:column>
+                <p:column>
+                    Поверх
+                </p:column>
+                <p:column>
+                    Кількість кімнат
+                </p:column>
+                <p:column>
+                    <p:inputText value="#{houseBean.owner}"/>
+                </p:column>
+                <p:column>
+                    <p:inputText value="#{houseBean.apartmentNumber}"/>
+                </p:column>
+                <p:column>
+                    <p:inputText value="#{houseBean.area}"/>
+                </p:column>
+                <p:column>
+                    <p:inputText value="#{houseBean.floor}"/>
+                </p:column>
+                <p:column>
+                    <p:inputText value="#{houseBean.numberOfRooms}"/>
+                </p:column>
+            </p:panelGrid>
+        </p:panel>
+        <p:panel>
+            <p:column>
+                <p:commandButton value="Add" action="#{houseBean.addApartment}"/>
+            </p:column>
+            <p:column>
+                <p:commandButton value="Close" action="#{houseBean.goMainView}"/>
+            </p:column>
+        </p:panel>
+
+    </h:form>
+</h:body>
+</html>
